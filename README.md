@@ -4,7 +4,8 @@
 **Payoo** is a simple digital wallet web application built using **HTML, Tailwind CSS, and DaisyUI**.  
 It simulates basic mobile banking features like adding money, cashing out, and viewing available balance — all within a clean mobile-style UI.
 
-<img width="466" height="635" alt="Screenshot 2025-10-28 094116" src="https://github.com/user-attachments/assets/b5ee3692-5333-4852-963b-e3b41cc4e12c" />
+<img width="1120" height="650" alt="Screenshot 2025-10-28 094321" src="https://github.com/user-attachments/assets/cfc8cb75-c166-41ab-94fa-005da053bcab" />
+
 
 
 ## Log In 
