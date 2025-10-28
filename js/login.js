@@ -5,7 +5,7 @@ buttonLogIN.addEventListener('click', (event) => {
   const mobileNumber = document.getElementById('mobile-number').value;
   const pinNumber = document.getElementById('pin-number').value;
   
-  if(mobileNumber === "1122" && pinNumber === "1122"){
+  if(mobileNumber === "1234" && pinNumber === "1234"){
     console.log("You are login");
     window.location.href = "home.html"
   }else{

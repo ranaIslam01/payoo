@@ -1,117 +1,111 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
+<html lang="en" class="bg-gray-900">
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Payoo home page</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/daisyui@4.12.24/dist/full.min.css"
-      rel="stylesheet"
-      type="text/css"
-    />
+    <title>Payoo Home Page</title>
+    <!-- TailwindCSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-  </head>
-  <body>
-    <main class="flex justify-center bg-white">
-      <div class="mockup-phone h-[700px] w-[350px] my-4 mt-30 bg-white">
-        <div class="display">
-          <div class="artboard artboard-demo mt-20 phone-1 bg-white">
-            <!-- abailable balance  -->
-            <div class="p-4 bg-black/90 rounded-xl text-center shadow">
-              <div id="main-amount" class="stat-value">9400</div>
-              <div class="stat-desc">Available banlance</div>
-            </div>
-            <div class="divider"></div>
-            <!-- User action button  -->
-            <div>
-              <button id="show-add-money" class="btn btn-lg">Add Money</button>
-              <button id="show-cash-out" class="btn btn-lg">Cash Out</button>
-            </div>
-            <div class="divider"></div>
-            <!-- Add Money Form Start  -->
-            <div
-              id="add-money-container"
-              class="hidden card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl"
-            >
-              <form class="card-body">
-                <div class="form-control">
-                  <label class="label">
-                    <span class="label-text">Amount</span>
-                  </label>
-                  <input
-                    id="input-amount"
-                    type="number"
-                    placeholder="Add Money Amount"
-                    class="input input-bordered"
-                    required
-                  />
-                </div>
-                <div class="form-control">
-                  <label class="label">
-                    <span class="label-text">Pin</span>
-                  </label>
-                  <input
-                    id="input-pin"
-                    type="password"
-                    placeholder="Pin Number"
-                    class="input input-bordered"
-                    required
-                  />
-                </div>
-                <div class="form-control mt-6">
-                  <button id="add-money" class="btn btn-primary">
-                    Add Money
-                  </button>
-                </div>
-              </form>
-            </div>
-            <!-- Add Money Form End  -->
+    <style>
+        /* Simple fade-in animation for elements */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px ); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .fade-in {
+            animation: fadeIn 0.5s ease-out forwards;
+        }
+        /* Smooth transition for hidden forms */
+        .form-container {
+            transition: all 0.3s ease-in-out;
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+        }
+        .form-container.active {
+            max-height: 500px; /* Adjust as needed */
+            opacity: 1;
+            margin-top: 1.5rem; /* 24px */
+        }
+    </style>
+</head>
+<body class="flex items-center justify-center min-h-screen p-4">
 
-            <!-- Cash Out From Start  -->
-            <div
-              id="cash-out-container"
-              class="hidden card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl"
-            >
-              <form class="card-body">
-                <div class="form-control">
-                  <label class="label">
-                    <span class="label-text">Amount</span>
-                  </label>
-                  <input
-                    id="cash-out-amount"
-                    type="number"
-                    placeholder="Cash Out Amount"
-                    class="input input-bordered"
-                    required
-                  />
-                </div>
-                <div class="form-control">
-                  <label class="label">
-                    <span class="label-text">Pin Number</span>
-                  </label>
-                  <input
-                    id="cash-out-pin"
-                    type="password"
-                    placeholder="Enter Your Pin"
-                    class="input input-bordered"
-                    required
-                  />
-                </div>
-                <div class="form-control mt-6">
-                  <button id="cash-out-btn" class="btn btn-primary">
-                    Cash Out
-                  </button>
-                </div>
-              </form>
-            </div>
-            <!-- Cash Out From End  -->
-          </div>
+    <!-- Phone Mockup -->
+    <div class="w-full max-w-sm mx-auto bg-gray-800 border-4 border-gray-700 rounded-[40px] shadow-2xl overflow-hidden">
+        <!-- Notch -->
+        <div class="h-8 bg-gray-800 flex justify-center items-start pt-2">
+            <div class="w-24 h-4 bg-black rounded-b-lg"></div>
         </div>
-      </div>
-    </main>
+
+        <!-- Screen -->
+        <div class="bg-black h-[640px] w-full p-6 overflow-y-auto">
+            <div class="flex flex-col items-center text-white fade-in">
+                
+                <!-- Available Balance -->
+                <div class="w-full p-6 bg-cyan-900/50 rounded-xl text-center shadow-lg border border-cyan-700/50">
+                    <p class="text-sm font-medium text-cyan-300 mb-1">Available Balance</p>
+                    <div id="main-amount" class="text-4xl font-bold text-white tracking-wider">9400</div>
+                </div>
+
+                <!-- Horizontal Divider -->
+                <div class="w-full h-px bg-gray-700 my-6"></div>
+
+                <!-- User Action Buttons -->
+                <div class="grid grid-cols-2 gap-4 w-full">
+                    <button id="show-add-money" class="w-full py-3 bg-gray-700 text-white font-semibold rounded-lg hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-cyan-500 transition-colors">
+                        Add Money
+                    </button>
+                    <button id="show-cash-out" class="w-full py-3 bg-gray-700 text-white font-semibold rounded-lg hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-cyan-500 transition-colors">
+                        Cash Out
+                    </button>
+                </div>
+
+                <!-- Add Money Form (Initially Hidden) -->
+                <div id="add-money-container" class=" w-full mt-6 p-6 bg-gray-800 rounded-lg border border-gray-700">
+                    <h3 class="text-lg font-semibold mb-4 text-center text-cyan-400">Add Money</h3>
+                    <form class="space-y-4">
+                        <div>
+                            <label for="input-amount" class="block text-sm font-medium text-gray-300 mb-1">Amount</label>
+                            <input id="input-amount" type="number" placeholder="Enter Amount" class="w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-md text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-500 transition" required />
+                        </div>
+                        <div>
+                            <label for="input-pin" class="block text-sm font-medium text-gray-300 mb-1">PIN</label>
+                            <input id="input-pin" type="password" placeholder="Enter PIN" class="w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-md text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-500 transition" required />
+                        </div>
+                        <button id="add-money" type="button" class="w-full mt-2 py-2.5 bg-cyan-600 text-white font-semibold rounded-md hover:bg-cyan-700 active:bg-cyan-800 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 focus:ring-offset-gray-800 transition-colors">
+                            Confirm Add Money
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Cash Out Form (Initially Hidden) -->
+                <div id="cash-out-container" class="hidden w-full mt-6 p-6 bg-gray-800 rounded-lg border border-gray-700">
+                    <h3 class="text-lg font-semibold mb-4 text-center text-cyan-400">Cash Out</h3>
+                    <form class="space-y-4">
+                        <div>
+                            <label for="cash-out-amount" class="block text-sm font-medium text-gray-300 mb-1">Amount</label>
+                            <input id="cash-out-amount" type="number" placeholder="Enter Amount" class="w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-md text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-500 transition" required />
+                        </div>
+                        <div>
+                            <label for="cash-out-pin" class="block text-sm font-medium text-gray-300 mb-1">PIN</label>
+                            <input id="cash-out-pin" type="password" placeholder="Enter PIN" class="w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-md text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-500 transition" required />
+                        </div>
+                        <button id="cash-out-btn" type="button" class="w-full mt-2 py-2.5 bg-cyan-600 text-white font-semibold rounded-md hover:bg-cyan-700 active:bg-cyan-800 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 focus:ring-offset-gray-800 transition-colors">
+                            Confirm Cash Out
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Your JS files remain unchanged -->
+    <!-- Note: You might need to adjust your JS to handle the new 'hidden' class logic if it was previously relying on DaisyUI's specific behavior. -->
     <script src="js/login.js"></script>
     <script src="js/addMoney.js"></script>
     <script src="js/cashOut.js"></script>
     <script src="js/features.js"></script>
-  </body>
+</body>
 </html>

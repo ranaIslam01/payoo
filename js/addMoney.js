@@ -5,7 +5,7 @@ addMoney.addEventListener('click', (e) => {
   const inputAmount = document.getElementById('input-amount').value;
   const mainAmount = document.getElementById('main-amount').innerText;
 
-  if(inputPin === '1122'){
+  if(inputPin === '1234'){
     const inputAmountNumber = parseFloat(inputAmount);
     const mainAmountNumber = parseFloat(mainAmount);
     const newAmount = mainAmountNumber + inputAmountNumber;

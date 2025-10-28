@@ -5,7 +5,7 @@ cashOutBtn.addEventListener('click', (e) => {
   const cashOutAmount = document.getElementById('cash-out-amount').value;
   const mainAmount = document.getElementById('main-amount').innerText;
 
-  if(cashOutPin === '1122'){
+  if(cashOutPin === '1234'){
     const inputAmountNumber = parseFloat(cashOutAmount);
     const mainAmountNumber = parseFloat(mainAmount);
     const newAmount = mainAmountNumber - inputAmountNumber;

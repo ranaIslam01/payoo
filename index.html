@@ -1,59 +1,100 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="bg-gray-900">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Payoo MFS</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/daisyui@5"
-      rel="stylesheet"
-      type="text/css"
-    />
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- TailwindCSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      /* Simple animation for the phone mockup */
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: scale(0.95 );
+        }
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+      .fade-in {
+        animation: fadeIn 0.5s ease-out forwards;
+      }
+    </style>
   </head>
-  <body>
-    <main class="flex justify-center items-center ">
+  <body class="flex items-center justify-center min-h-screen p-4">
 
-      <div class="mockup-phone h-[700px] w-[350px] my-4">
-        <div class="camera"></div>
-        <div class="display">
-          <div class="artboard artboard-demo phone-1">
-            
-            <!-- login section  -->
-            <div class="hero bg-base-200 h-auto bg-black">
-              <div class="hero-content flex-col  ">
-                <div
-                  class="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl bg-blue-100"
-                >
-                  <div class="card-body ">
-                    <fieldset class="fieldset">
-                      <label class="label">Phone Number</label>
-                      <input id="mobile-number" type="email" class="input" placeholder="Your Phone Number" />
-                      <label class="label">Your Pin</label>
-                      <input
-                        id="pin-number"
-                        type="password"
-                        class="input"
-                        placeholder="Password"
-                      />
-                      <div><a class="link link-hover">Forgot password?</a></div>
-                      <button id="button-login" class="btn btn-neutral mt-4">Login</button>
-                      <span  id="msg"></span>
-                      <span  id="msg2"></span>
-                    </fieldset>
-                  </div>
-                </div>
+    <!-- Phone Mockup -->
+    <div class="w-full max-w-sm mx-auto bg-gray-800 border-4 border-gray-700 rounded-[40px] shadow-2xl overflow-hidden fade-in">
+      <!-- Notch -->
+      <div class="h-8 bg-gray-800 flex justify-center items-start pt-2">
+        <div class="w-24 h-4 bg-black rounded-b-lg"></div>
+      </div>
+
+      <!-- Screen -->
+      <div class="bg-black h-[640px] w-full">
+        <!-- Login Section -->
+        <div class="flex flex-col items-center justify-center h-full px-8 text-white">
+          
+          <!-- Logo/Title (Optional but recommended) -->
+          <h1 class="text-3xl font-bold text-cyan-400 mb-2">Payoo MFS</h1>
+          <p class="text-gray-400 mb-8">Securely login to your account</p>
+
+          <!-- Login Form -->
+          <div class="w-full p-6 bg-gray-800 rounded-lg shadow-md border border-gray-700">
+            <form class="space-y-4">
+              <!-- Phone Number Input -->
+              <div>
+                <label for="mobile-number" class="block text-sm font-medium text-gray-300 mb-1">Phone Number</label>
+                <input 
+                  id="mobile-number" 
+                  type="tel" 
+                  class="w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-md text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-500 transition" 
+                  placeholder="Your Phone Number" 
+                />
               </div>
-            </div>
 
+              <!-- PIN Input -->
+              <div>
+                <label for="pin-number" class="block text-sm font-medium text-gray-300 mb-1">Your Pin</label>
+                <input 
+                  id="pin-number" 
+                  type="password" 
+                  class="w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-md text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-500 transition" 
+                  placeholder="Enter your PIN" 
+                />
+              </div>
+
+              <!-- Forgot Password Link -->
+              <div class="text-right">
+                <a href="#" class="text-sm text-cyan-400 hover:underline">Forgot password?</a>
+              </div>
+
+              <!-- Login Button -->
+              <button 
+                id="button-login" 
+                type="button" 
+                class="w-full py-2.5 bg-cyan-600 text-white font-semibold rounded-md hover:bg-cyan-700 active:bg-cyan-800 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 focus:ring-offset-gray-800 transition-colors"
+              >
+                Login
+              </button>
+
+              <!-- Message Spans -->
+              <div class="h-8 pt-2 text-center">
+                <span id="msg" class="text-red-400 text-sm"></span>
+                <span id="msg2" class="text-green-400 text-sm"></span>
+              </div>
+            </form>
           </div>
         </div>
       </div>
+    </div>
 
-    </main>
+    <!-- Your JS files remain unchanged -->
     <script src="js/login.js"></script>
-     <script src="js/addMoney.js"></script>
-     <script src="js/cashOut.js"></script>
-     <script src="js/features.js"></script>
+    <script src="js/addMoney.js"></script>
+    <script src="js/cashOut.js"></script>
+    <script src="js/features.js"></script>
   </body>
 </html>
