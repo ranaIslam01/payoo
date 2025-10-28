@@ -4,6 +4,9 @@
 **Payoo** is a simple digital wallet web application built using **HTML, Tailwind CSS, and DaisyUI**.  
 It simulates basic mobile banking features like adding money, cashing out, and viewing available balance — all within a clean mobile-style UI.
 
+## Log In 
+**Mobile Number:** 1122.
+**Pin Number:**1122
 ---
 
 ## 🚀 Features
