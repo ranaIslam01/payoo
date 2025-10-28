@@ -1,5 +1,5 @@
-const buttonLogIN = document.getElementById('button-login');
-buttonLogIN.addEventListener('click', (event) => {
+const buttonLogin = document.getElementById('button-login');
+buttonLogin.addEventListener('click', (event) => {
   event.preventDefault();
   console.log("button was click");
   const mobileNumber = document.getElementById('mobile-number').value;

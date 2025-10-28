@@ -6,6 +6,8 @@
     <title>Payoo Home Page</title>
     <!-- TailwindCSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
     <style>
         /* Simple fade-in animation for elements */
         @keyframes fadeIn {
@@ -14,18 +16,6 @@
         }
         .fade-in {
             animation: fadeIn 0.5s ease-out forwards;
-        }
-        /* Smooth transition for hidden forms */
-        .form-container {
-            transition: all 0.3s ease-in-out;
-            max-height: 0;
-            overflow: hidden;
-            opacity: 0;
-        }
-        .form-container.active {
-            max-height: 500px; /* Adjust as needed */
-            opacity: 1;
-            margin-top: 1.5rem; /* 24px */
         }
     </style>
 </head>
@@ -39,30 +29,33 @@
         </div>
 
         <!-- Screen -->
-        <div class="bg-black h-[640px] w-full p-6 overflow-y-auto">
-            <div class="flex flex-col items-center text-white fade-in">
+        <div class="bg-black h-[640px] w-full p-4 overflow-y-auto">
+            <div class="flex flex-col items-center text-white fade-in space-y-6">
                 
                 <!-- Available Balance -->
                 <div class="w-full p-6 bg-cyan-900/50 rounded-xl text-center shadow-lg border border-cyan-700/50">
                     <p class="text-sm font-medium text-cyan-300 mb-1">Available Balance</p>
-                    <div id="main-amount" class="text-4xl font-bold text-white tracking-wider">9400</div>
+                    <div id="main-amount" class="text-4xl font-bold text-white tracking-wider">100</div>
                 </div>
 
-                <!-- Horizontal Divider -->
-                <div class="w-full h-px bg-gray-700 my-6"></div>
-
                 <!-- User Action Buttons -->
-                <div class="grid grid-cols-2 gap-4 w-full">
-                    <button id="show-add-money" class="w-full py-3 bg-gray-700 text-white font-semibold rounded-lg hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-cyan-500 transition-colors">
-                        Add Money
+                <div class="grid grid-cols-3 gap-3 w-full">
+                    <button id="show-add-money" class="flex flex-col items-center justify-center p-3 bg-gray-700 text-white font-semibold rounded-lg hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-cyan-500 transition-colors">
+                        <i class="fa-solid fa-plus mb-1"></i>
+                        <span class="text-xs">Add Money</span>
                     </button>
-                    <button id="show-cash-out" class="w-full py-3 bg-gray-700 text-white font-semibold rounded-lg hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-cyan-500 transition-colors">
-                        Cash Out
+                    <button id="show-cash-out" class="flex flex-col items-center justify-center p-3 bg-gray-700 text-white font-semibold rounded-lg hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-cyan-500 transition-colors">
+                        <i class="fa-solid fa-paper-plane mb-1"></i>
+                        <span class="text-xs">Cash Out</span>
+                    </button>
+                    <button id="show-transection" class="flex flex-col items-center justify-center p-3 bg-gray-700 text-white font-semibold rounded-lg hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-cyan-500 transition-colors">
+                        <i class="fa-solid fa-list-ul mb-1"></i>
+                        <span class="text-xs">History</span>
                     </button>
                 </div>
 
                 <!-- Add Money Form (Initially Hidden) -->
-                <div id="add-money-container" class=" w-full mt-6 p-6 bg-gray-800 rounded-lg border border-gray-700">
+                <div id="add-money-container" class=" w-full p-6 bg-gray-800 rounded-lg border border-gray-700">
                     <h3 class="text-lg font-semibold mb-4 text-center text-cyan-400">Add Money</h3>
                     <form class="space-y-4">
                         <div>
@@ -80,7 +73,7 @@
                 </div>
 
                 <!-- Cash Out Form (Initially Hidden) -->
-                <div id="cash-out-container" class="hidden w-full mt-6 p-6 bg-gray-800 rounded-lg border border-gray-700">
+                <div id="cash-out-container" class="hidden w-full p-6 bg-gray-800 rounded-lg border border-gray-700">
                     <h3 class="text-lg font-semibold mb-4 text-center text-cyan-400">Cash Out</h3>
                     <form class="space-y-4">
                         <div>
@@ -97,15 +90,21 @@
                     </form>
                 </div>
 
+                <!-- Transactions History (Initially Hidden) -->
+                <div id="transection-container" class="hidden w-full p-4 bg-gray-800 rounded-lg border border-gray-700">
+                    <h3 class="text-lg font-semibold mb-4 text-center text-cyan-400">Transaction History</h3>
+                    <div id="prependId">
+
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>
 
-    <!-- Your JS files remain unchanged -->
-    <!-- Note: You might need to adjust your JS to handle the new 'hidden' class logic if it was previously relying on DaisyUI's specific behavior. -->
-    <script src="js/login.js"></script>
+    <!-- Your JS files -->
+    <script src="js/features.js"></script>
     <script src="js/addMoney.js"></script>
     <script src="js/cashOut.js"></script>
-    <script src="js/features.js"></script>
 </body>
 </html>
