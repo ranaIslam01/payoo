@@ -5,8 +5,8 @@
 It simulates basic mobile banking features like adding money, cashing out, and viewing available balance — all within a clean mobile-style UI.
 
 ## Log In 
-**Mobile Number:** 1122
-**Pin Number:** 1122
+**Mobile Number:** 1234
+**Pin Number:** 1234
 ---
 
 ## 🚀 Features
